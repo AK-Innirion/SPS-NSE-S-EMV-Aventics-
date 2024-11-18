@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\xsd\GSDML-DeviceProfile-V2.43.xsd">
+  <ProfileHeader>
+    <ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+    <ProfileRevision>1.00</ProfileRevision>
+    <ProfileName>Device Profile for PROFINET Devices</ProfileName>
+    <ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+    <ProfileClassID>Device</ProfileClassID>
+    <ISO15745Reference>
+      <ISO15745Part>4</ISO15745Part>
+      <ISO15745Edition>1</ISO15745Edition>
+      <ProfileTechnology>GSDML</ProfileTechnology>
+    </ISO15745Reference>
+  </ProfileHeader>
+  <ProfileBody>
+    <DeviceIdentity DeviceID="0x0001" VendorID="0x02C3">
+      <InfoText TextId="DeviceDescription_InfoText"/>
+      <VendorName Value="SCHUNK GmbH + Co. KG"/>
+    </DeviceIdentity>
+    <DeviceFunction>
+      <Family MainFamily="I/O" ProductFamily="PNS"/>
+    </DeviceFunction>
+    <ApplicationProcess>
+      <DeviceAccessPointList>
+		<DeviceAccessPointItem CheckDeviceID_Allowed="true" DNS_CompatibleName="Schunk-FTS" DeviceAccessSupported="true" FixedInSlots="0" ID="DIM 32" ImplementationType="fts" LLDP_NoD_Supported="true" MinDeviceInterval="8" ModuleIdentNumber="0x00003021" MultipleWriteSupported="true" NameOfStationNotTransferable="true" NumberOfDeviceAccessAR="1" ObjectUUID_LocalIndex="1" PNIO_Version="V2.43" PhysicalSlots="0..32" PowerOnToCommReady="10000" ResetToFactoryModes="2" SharedDeviceSupported="true" SharedInputSupported="false">
+          <ModuleInfo>
+            <Name TextId="SCHUNK FTS"/>
+            <InfoText TextId="DIM 32_InfoText"/>
+            <VendorName Value="SCHUNK GmbH + Co. KG"/>
+            <OrderNumber Value="7833.000"/>
+            <HardwareRelease Value="3"/>
+            <SoftwareRelease Value="V0.7.0"/>
+          </ModuleInfo>
+          <CertificationInfo ApplicationClass="" ConformanceClass="A" NetloadClass="I"/>
+          <SubslotList>
+            <SubslotItem SubslotNumber="32768" TextId="X1"/>
+            <SubslotItem SubslotNumber="32769" TextId="X1P1"/>
+            <SubslotItem SubslotNumber="32770" TextId="X1P2"/>
+          </SubslotList>
+          <IOConfigData MaxDataLength="2880" MaxInputLength="1440" MaxOutputLength="1440"/>
+          <UseableModules>
+            <ModuleItemRef AllowedInSlots="1" UsedInSlots="1" ModuleItemTarget="41byteinput"/>
+            <ModuleItemRef AllowedInSlots="2" UsedInSlots="2" ModuleItemTarget="3byteoutput"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DIM 32" IM5_Supported="false" MayIssueProcessAlarm="false" SubmoduleIdentNumber="0x00003020" Writeable_IM_Records="1 2 3">
+              <IOData/>
+              <ModuleInfo CategoryRef="DAP Module">
+                <Name TextId="SCHUNK FTS"/>
+                <InfoText TextId="DIM 32_InfoText"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <SystemDefinedSubmoduleList>
+            <InterfaceSubmoduleItem DCP_BoundarySupported="true" DCP_HelloSupported="true" DelayMeasurementSupported="true" SupportedDelayMeasurements="PTCP" ID="DIM 32 Interfacesubmodule" NetworkComponentDiagnosisSupported="false" PTP_BoundarySupported="true" SubmoduleIdentNumber="0x00003021" SubslotNumber="32768" SupportedProtocols="SNMP;LLDP" SupportedRT_Classes="RT_CLASS_1" TextId="PN-IO" UsesStaticARP_CacheEntries="true">
+			  <ApplicationRelations NumberOfAR="2" StartupMode="Advanced;Legacy">
+                <TimingProperties ReductionRatio="1 2 4 8 16 32 64 128 256 512" SendClock="8 16 32 64 128"/>
+              </ApplicationRelations>
+              <MediaRedundancy SupportedRole="Client"/>
+            </InterfaceSubmoduleItem>
+            <PortSubmoduleItem CheckMAUTypeDifferenceSupported="true" CheckMAUTypeSupported="true" ID="DIM 32 Portsubmodule 1" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" SubmoduleIdentNumber="0x00003022" SubslotNumber="32769" TextId="Port1">
+              <MAUTypeList>
+                <MAUTypeItem AdjustSupported="true" Value="16"/>
+              </MAUTypeList>
+            </PortSubmoduleItem>
+            <PortSubmoduleItem CheckMAUTypeDifferenceSupported="true" CheckMAUTypeSupported="true" ID="DIM 32 Portsubmodule 2" IsDefaultRingport="true" LinkStateDiagnosisCapability="Up+Down" MAUTypes="16" MaxPortRxDelay="220" MaxPortTxDelay="116" PortDeactivationSupported="true" SubmoduleIdentNumber="0x00003023" SubslotNumber="32770" TextId="Port2">
+              <MAUTypeList>
+                <MAUTypeItem AdjustSupported="true" Value="16"/>
+              </MAUTypeList>
+            </PortSubmoduleItem>
+          </SystemDefinedSubmoduleList>
+          <Graphics>
+            <GraphicItemRef GraphicItemTarget="1" Type="DeviceSymbol"/>
+            <GraphicItemRef GraphicItemTarget="1" Type="DeviceIcon"/>
+          </Graphics>
+        </DeviceAccessPointItem>
+      </DeviceAccessPointList>
+      <ModuleList>
+        <ModuleItem ID="41byteinput" ModuleIdentNumber="0x00000001">
+          <ModuleInfo CategoryRef="Input Module">
+            <Name TextId="Module_41byteinput_Name"/>
+            <InfoText TextId="Module_41byteinput_InfoText"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="41byteinput" MayIssueProcessAlarm="false" SubmoduleIdentNumber="0x00000001">
+              <IOData>
+                <Input>
+                  <DataItem DataType="Unsigned32" UseAsBits="true" TextId="TxPDO_Status_Bits_UINT32">
+                  	<BitDataItem BitOffset="0" TextId="TxPDO_Status_Bits_BIT0"/>
+                  	<BitDataItem BitOffset="1" TextId="TxPDO_Status_Bits_BIT1"/>
+                  	<BitDataItem BitOffset="2" TextId="TxPDO_Status_Bits_BIT2"/>
+                  	<BitDataItem BitOffset="3" TextId="TxPDO_Status_Bits_BIT3"/>
+                    <BitDataItem BitOffset="4" TextId="TxPDO_Status_Bits_BIT4"/>
+                    <BitDataItem BitOffset="5" TextId="TxPDO_Status_Bits_BIT5"/>                                          
+                  </DataItem>
+                  <DataItem DataType="Unsigned8"  TextId="TxPDO_Sample_Counter_UINT8"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Temperature_FLOAT"/>  
+                  <DataItem DataType="Float32"  TextId="TxPDO_Fx_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Fy_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Fz_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Tx_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Ty_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Tz_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Debug0_FLOAT"/>
+                  <DataItem DataType="Float32"  TextId="TxPDO_Debug1_FLOAT"/>
+                </Input>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="Submodule_41byteinput_Name"/>
+                <InfoText TextId="Submodule_41byteinput_InfoText"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+        <ModuleItem ID="3byteoutput" ModuleIdentNumber="0x00000002">
+          <ModuleInfo CategoryRef="Output Module">
+            <Name TextId="Module_3byteoutput_Name"/>
+            <InfoText TextId="Module_3byteoutput_InfoText"/>
+          </ModuleInfo>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="3byteoutput" MayIssueProcessAlarm="false" SubmoduleIdentNumber="0x00000001">
+              <IOData>
+                <Output>
+                  <DataItem DataType="Unsigned8" UseAsBits="true" TextId="RxPDO_Command_Word_UINT8">
+                  	<BitDataItem BitOffset="0" TextId="RxPDO_Command_Word_BIT0"/>                  
+			              <BitDataItem BitOffset="1" TextId="RxPDO_Command_Word_BIT1"/> 
+			              <BitDataItem BitOffset="2" TextId="RxPDO_Command_Word_BIT2"/> 
+                  </DataItem>
+                  <DataItem DataType="Unsigned8"  TextId="RxPDO_Select_Tool_Setting_UINT8"/>
+                  <DataItem DataType="Unsigned8"  TextId="RxPDO_Select_Noise_Reduction_Filter_UINT8"/>                  
+                </Output>
+              </IOData>
+              <ModuleInfo>
+                <Name TextId="Submodule_3byteoutput_Name"/>
+                <InfoText TextId="Submodule_3byteoutput_InfoText"/>
+              </ModuleInfo>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+        </ModuleItem>
+      </ModuleList>
+      <GraphicsList>
+        <GraphicItem GraphicFile="GSDML-011E-1003-SCHUNK-FTS" ID="1"/>
+      </GraphicsList>
+      <CategoryList>
+        <CategoryItem ID="DAP Module" TextId="DAP Module_CategoryName"/>
+        <CategoryItem ID="Input Module" TextId="Input Module_CategoryName"/>
+        <CategoryItem ID="Output Module" TextId="Output Module_CategoryName"/>
+      </CategoryList>
+      <ExternalTextList>
+        <PrimaryLanguage>
+           <!--Device Access Point information etc -->
+          <Text TextId="DAP Module_CategoryName" Value="Device Access Point Modules"/>
+          <Text TextId="DIM 32_InfoText" Value="Firmware version V0.7.0"/>
+		      <Text TextId="DataItem_41byteinput_inputdata_0_Name" Value="Inputs"/>
+          <Text TextId="DataItem_3byteoutput_outputdata_0_Name" Value="Outputs"/>
+          <Text TextId="DeviceDescription_InfoText" Value="PROFINET IO-Device"/>
+          <Text TextId="Input Module_CategoryName" Value="Input Modules"/>
+          <Text TextId="Module_41byteinput_InfoText" Value="41 Bytes Input Module"/>
+          <Text TextId="Module_41byteinput_Name" Value="41 Bytes Input"/>
+          <Text TextId="Module_3byteoutput_InfoText" Value="3 Bytes Output Module"/>
+          <Text TextId="Module_3byteoutput_Name" Value="3 Bytes Output"/>
+		      <Text TextId="SCHUNK FTS" Value="SCHUNK FTS"/>
+          <Text TextId="Output Module_CategoryName" Value="Output Modules"/>
+          <Text TextId="PN-IO" Value="PN-IO"/>
+          <Text TextId="Port1" Value="Port 1"/>
+          <Text TextId="Port2" Value="Port 2"/>
+          <Text TextId="Submodule_41byteinput_InfoText" Value="41 Bytes Input Submodule"/>
+          <Text TextId="Submodule_41byteinput_Name" Value="41 Bytes Input"/>
+          <Text TextId="Submodule_3byteoutput_InfoText" Value="3 Byte Output Submodule"/>
+          <Text TextId="Submodule_3byteoutput_Name" Value="3 Bytes Output"/>
+          <Text TextId="X1" Value="X1"/>
+          <Text TextId="X1P1" Value="X1 P1"/>
+          <Text TextId="X1P2" Value="X1 P2"/>
+          <!--Input -->
+           	<Text TextId="TxPDO_Status_Bits_UINT32" Value="Status Bits"/>
+           <!--Bits -->
+           		<Text TextId="TxPDO_Status_Bits_BIT0" Value="Busy"/>
+            		<Text TextId="TxPDO_Status_Bits_BIT1" Value="Command Error"/>
+			          <Text TextId="TxPDO_Status_Bits_BIT2" Value="Temperature Out Of Range"/>
+            		<Text TextId="TxPDO_Status_Bits_BIT3" Value="Hardware Error"/>
+            		<Text TextId="TxPDO_Status_Bits_BIT4" Value="Mechanical Overrange Limits Exceeded"/>
+            		<Text TextId="TxPDO_Status_Bits_BIT5" Value="User Defined Overrange Limits Exceeded"/>
+            			
+            	<Text TextId="TxPDO_Sample_Counter_UINT8" Value="Sample Counter"/>
+            	<Text TextId="TxPDO_Temperature_FLOAT" Value="Temperature"/>
+            	<Text TextId="TxPDO_Fx_FLOAT" Value="Fx (Service: Gauge 0)"/>
+            	<Text TextId="TxPDO_Fy_FLOAT" Value="Fy (Service: Gauge 1)"/>
+		          <Text TextId="TxPDO_Fz_FLOAT" Value="Fz (Service: Gauge 2)"/>
+		          <Text TextId="TxPDO_Tx_FLOAT" Value="Tx (Service: Gauge 3)"/>
+		          <Text TextId="TxPDO_Ty_FLOAT" Value="Ty (Service: Gauge 4)"/>
+		          <Text TextId="TxPDO_Tz_FLOAT" Value="Tz (Service: Gauge 5)"/>
+		          <Text TextId="TxPDO_Debug0_FLOAT" Value="- (Service: Debug 0)"/>
+		          <Text TextId="TxPDO_Debug1_FLOAT" Value="- (Service: Debug 1)"/>            		
+           <!--Output -->
+            	<Text TextId="RxPDO_Command_Word_UINT8" Value="Command Word"/>
+           <!--Bits -->
+           		<Text TextId="RxPDO_Command_Word_BIT0" Value="Tara"/>
+            		<Text TextId="RxPDO_Command_Word_BIT1" Value="Reset Tara"/>
+            		<Text TextId="RxPDO_Command_Word_BIT2" Value="Software Reset"/>
+            			
+             	<Text TextId="RxPDO_Select_Tool_Setting_UINT8" Value="Select Tool Setting"/>           			
+             	<Text TextId="RxPDO_Select_Noise_Reduction_Filter_UINT8" Value="Select Noise Reduction Filter"/>      
+             	
+             	<!--Paramters-->
+             	<Text TextId="Sens_Product_Name_Txt" Value="Sensor Product Name"/>
+        </PrimaryLanguage>
+      </ExternalTextList>
+    </ApplicationProcess>
+  </ProfileBody>
+</ISO15745Profile>
